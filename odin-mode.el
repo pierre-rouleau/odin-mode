@@ -106,7 +106,7 @@
     "u16le" "u32le" "u64le"
     "u16be" "u32be" "u64be"
 
-    "f32" "f64"
+    "f16" "f32" "f64"
     "complex64" "complex128"
 
     "quaternion128" "quaternion256"
@@ -122,6 +122,7 @@
   '("builtin"
     "export"
     "static"
+    "init"
     "deferred_in" "deferred_none" "deferred_out"
     "require_results"
     "default_calling_convention" "link_name" "link_prefix"
@@ -143,6 +144,8 @@
             "#no_alias"
             "#c_vararg"
             "#assert"
+            "#optional_ok"
+            "#soa"
             "#file" "#line" "#location" "#procedure" "#caller_location"
             "#load"
             "#defined"

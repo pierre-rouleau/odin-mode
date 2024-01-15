@@ -145,7 +145,6 @@
             "#c_vararg"
             "#assert"
             "#optional_ok"
-            "#soa"
             "#file" "#line" "#location" "#procedure" "#caller_location"
             "#load"
             "#defined"

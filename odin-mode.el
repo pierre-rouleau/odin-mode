@@ -1,4 +1,4 @@
-;;; odin-mode.el --- A minor mode for odin
+;;; odin-mode.el --- A minor mode for odin. -*-lexical-binding: t-*-
 
 ;; Author: Ethan Morgan
 ;; Keywords: odin, language, languages, mode
@@ -248,7 +248,8 @@
           (forward-char 1)))
       found)))
 
-(defun odin-beginning-of-defun (&optional count)
+;; todo: is an optional count argument needed. If so for what?
+(defun odin-beginning-of-defun ()
   "Go to line on which current function starts."
   (interactive)
   (let ((orig-level (odin-paren-level)))

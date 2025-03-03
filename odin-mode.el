@@ -308,15 +308,21 @@
 ;; Lsp-mode configuration
 (defcustom odin-language-server-executable "ols"
   "Executable to run odin-lsp. Default: ols"
-  :type 'string)
+  :type 'string
+  :group 'odin)
 
 (with-eval-after-load 'lsp-mode
-  (add-to-list 'lsp-language-id-configuration
-	       '(odin-mode . "odin"))
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection odin-language-server-executable)
-		    :activation-fn  (lsp-activate-on "odin")
-		    :server-id      'ols)))
+  (when (and (boundp 'lsp-language-id-configuration)
+             (fboundp 'lsp-register-client)
+             (fboundp 'make-lsp-client)
+             (fboundp 'lsp-stdio-connection)
+             (fboundp 'lsp-activate-on))
+    (add-to-list 'lsp-language-id-configuration
+	             '(odin-mode . "odin"))
+    (lsp-register-client
+     (make-lsp-client :new-connection (lsp-stdio-connection odin-language-server-executable)
+		              :activation-fn  (lsp-activate-on "odin")
+		              :server-id      'ols))))
 
 (provide 'odin-mode)
 
